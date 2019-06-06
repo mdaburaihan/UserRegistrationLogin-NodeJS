@@ -82,6 +82,27 @@ mongoose.connect('mongodb://localhost/courses', { useNewUrlParser: true })
 
  }
 
+ async function updateCourse(id){
+    const result = await Course.update({ _id:id }, {
+       $set: {
+          author: 'Rohan',
+          isPublished: false
+       }
+    });
+
+
+    const course = await Course.findByIdAndUpdate(id, {
+      $set: {
+         author: "Rohan",
+         isPublished: true
+      }
+    }, { new: true });
+
+    console.log(course);
+ }
+
+
+
  //createCourse();
 getCourses();
  
