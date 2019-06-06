@@ -73,6 +73,15 @@ mongoose.connect('mongodb://localhost/courses', { useNewUrlParser: true })
     /* Regular expression (end) */
  }
 
+
+ async function removeCourse(id){
+   //const result = await Course.deleteOne( { _id:id } );
+   //const result = await Course.deleteMany( { _id:id } );
+   const course = await Course.findById(id);
+   console.log(course);
+
+ }
+
  //createCourse();
 getCourses();
  
